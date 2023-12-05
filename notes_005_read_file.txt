@@ -1,0 +1,89 @@
+Basic elements of file input:
+The function open() creates and returns a file handle
+
+obligatory argument: a file name (or a complete path)
+
+optional: a string representing the mode in which the file is opened
+
+optional: a string representing the encoding of the file (see below)
+
+      Example: open(“guide.txt”, “r”)  --- save with a new variable name
+      file = open(“guide.txt”, “r”)
+
+The default mode if no other is specified: “r” (“reading” – opens a file for reading only).
+Other options:
+“w” (“writing” – opens a file for writing only. If the file does not exist, creates a new file for writing).
+“a” (“appending” – opens a file for appending. New content is appended to the end of the file. If the file does not exist, creates a new file for writing).
+“x” (“creating” – creates a file and opens it. Fails if a file by that name already exists).
+
+Additional specifiers to the mode: “+” (r+ = read and write, w+ = write and read, a+ = append and read), “b” (rb/wb/ab = read/write/append in binary format)
+“rb” - read a binary file  -- UTFA
+"wr" - write a binary file
+
+      file = open(“guide.txt”, “r”)
+      file.read()        returns whole file as single string
+      file.readline()    returns next __unprocessed line__ of file -- to the next "/n" or "." or "r"....可以随便定义分割符号
+      file.readlines()   returns a list of strings. as a string in the original order. 进一步加工，matix等等
+      file.close()       cancels or finishes the procesisn gof file, make sure to close correctly
+
+----------------------------------------------------------------------------------------------------------------------
+
+DOUGLAS ADAMS: The Hitchhiker’s Guide to the Galaxy
+Preface
+
+Far out in the uncharted backwaters of the unfashionable end of the western spiral arm of the Galaxy lies a small unregarded yellow sun.
+
+Orbiting this at a distance of roughly ninety-two million miles is an utterly insignificant little blue green planet whose ape-descended life forms are so amazingly primitive that they still think digital watches are a pretty neat idea.
+
+This planet has - or rather had - a problem, which was this: most of the people on it were unhappy for pretty much of the time. Many solutions were suggested for this problem, but most of these were largely concerned with the movements of small green pieces of paper, which is odd because on the whole it wasn’t the small green pieces of paper that were unhappy.
+
+----------------------------------------------------------------------------------------------------------------------
+
+fr = open("guide.txt", "r")
+title = fr.readline () #assigns the contents of the first line to a variable called title 随便assign value
+    >>> DOUGLAS ADAMS: The Hitchhiker’s Guide to the Galaxy
+chapter = fr.readline() #assigns the contents of the next line to a variable called chapter
+    >>> Preface
+contents = fr.read() #stores the full file contents in a variable called contents
+    >>> all the rest of the file
+fr.close () #closes the file
+----------------------------------------------------------------------------------------------------------------------
+
+
+Basic elements of file output:
+To create or overwrite a file and write new contents into it, use open(file_name,”w”).
+
+file.write() writes a string to the file, and returns the number of characters written
+
+file.writelines() takes a list of strings, and writes each of them into a __new line___ of the file
+
+file.flush() forces the buffer to be flushed
+    Note that file contents are not changed immediately. The operating system buffers changes in order to make file operations more efficient.
+    To force that the buffer is cleared, use flush(). The buffer is also cleared upon using close() or when closing a Python session.
+    This method can be useful if you want to ensure that file contents are securely saved in case the program might crash.
+
+file.close() finishes the creation of the file, and ensures that the file is closed correctly
+
+----------------------------------------------------------------------------------------------------------------------
+fp = open("example.txt", "w")    # if file does not exist, python creates it, "w" overwrite things?? 不会overwrite。重新打开文件再run “w” ------looping。 
+while True:
+    text = input("Enter a line to write to the file , or press ENTER to quit!") #accepts new text input  
+                                                                                #
+    if text == "": #until the user enters nothing (just presses ENTER)
+         break 
+    fp.write(text) #writes the new input to the file
+fp.close () #closes the file
+----------------------------------------------------------------------------------------------------------------------
+
+Tab-Separated Values (TSV)  
+Comma-Separated Values (CSV)
+
+import csv
+csvfile = open('eggs.csv', newline='')
+spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
+
+import json
+
+
+
+
