@@ -16,3 +16,6 @@ Other options:
 “x” (“creating” – creates a file and opens it. Fails if a file by that name already exists).
 
 Additional specifiers to the mode: “+” (r+ = read and write, w+ = write and read, a+ = append and read), “b” (rb/wb/ab = read/write/append in binary format)
+“rb” - read a binary file  -- UTFA
+"wr" - write a binary file
+
