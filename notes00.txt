@@ -1,0 +1,18 @@
+Basic elements of file input:
+The function open() creates and returns a file handle
+
+obligatory argument: a file name (or a complete path)
+
+optional: a string representing the mode in which the file is opened
+
+optional: a string representing the encoding of the file (see below)
+
+Example: open(“guide.txt”, “r”)
+
+The default mode if no other is specified: “r” (“reading” – opens a file for reading only).
+Other options:
+“w” (“writing” – opens a file for writing only. If the file does not exist, creates a new file for writing).
+“a” (“appending” – opens a file for appending. New content is appended to the end of the file. If the file does not exist, creates a new file for writing).
+“x” (“creating” – creates a file and opens it. Fails if a file by that name already exists).
+
+Additional specifiers to the mode: “+” (r+ = read and write, w+ = write and read, a+ = append and read), “b” (rb/wb/ab = read/write/append in binary format)
