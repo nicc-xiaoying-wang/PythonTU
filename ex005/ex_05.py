@@ -11,8 +11,19 @@ def read_frequency_file(freq_file_name):
     """
     Loads (token, frequency) pairs from a file with line format "<token> <frequency>".
     """
-    file = open("freq_file_name", "r")
+    tuple_list = []
+
+    file = open(freq_file_name, "r")
+    for line in file:
+        tokens = line.split()
+        if len(tokens) == 2:
+            tuple = (tokens[0], int(tokens[1]))  # Assuming frequency is an integer
+            tuple_list.append(tuple)
+    print(tuple_list)
+    return tuple_list
+
     pass
+read_frequency_file("freq_en_50k.txt")
 
 def determine_decile_thresholds(frequencies):
     """
