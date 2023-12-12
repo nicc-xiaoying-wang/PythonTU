@@ -3,12 +3,62 @@ fr.close() #close the file
 #without with
 
 file = open('test.txt', 'w')
-try:
+try:                                #introducting a code block, try to do what's in there? if there's an exception, ignore. 
+                                    # &keep running the programm.  try writing "hello world"
+                                      # try and pair with finally, except ...
+
+  
   file.write("hello,world")
 finally:
   file.close()
 
+
+
+try:
+  file = open("test.txt")
+  text = file.read()
+except FileNotFoundError:
+  print("ERROR: file not found!")            #if failed, throw exception
+finally:                                     # three paired together: try, except, finally
+  file.close()
+
+
+for x in range(0,5):
+  print("if i have {} apples and you gave me a single apple, then i'll have {} apples.".format(x,x+1)  
+        #.format is a build-in method for strings
+
+
+a="supercalifraglististicexpialidocious"
+for letter in a[:7]:
+    print("the {}th letter in {} is {}.". format(a.index(letter)+1, a letter))
+
+
+try:   #try one thing, no loop here
+  x = int(input("Enter a number: ")
+  result = 0/x
+except ZeroDivisionError:
+  print("You cannot divde by zero.")
+except ValueError:
+  print("Invalid input. plear enter a valid number.")
+except Exception as e: 
+  print(f"An error occured: {e}")
+else:  #if try is successful
+  print("the resulg of this calculation is:", result)
+finally: # does not matter if try is successul or not
+  print("All done! by the way, the current value of x is:", x)
+
+---------------------------------------------------------------------------------------------------------------
+
 #using with
 with open('test.txt','w') as file:
   file.write('hello world')
+
+
+import csv #module
+import json #module
+
+csv, seprate by comma. https://docs.python.org/3/library/csv.html
+
+
+
 
