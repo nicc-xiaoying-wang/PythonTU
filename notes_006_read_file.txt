@@ -1,0 +1,14 @@
+fr.close() #close the file 
+
+#without with
+
+file = open('test.txt', 'w')
+try:
+  file.write("hello,world")
+finally:
+  file.close()
+
+#using with
+with open('test.txt','w') as file:
+  file.write('hello world')
+
